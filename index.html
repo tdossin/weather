@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="weatherApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Toby Dossin - POC Weather App</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/css/bootstrap.custom.min.css" />
+	<script src="js/angular.min.js"></script>
+	<script src="js/moment.js"></script>
+	<script src="js/scripts.js"></script>
+</head>
+<body ng-controller="weatherCtrl">
+	<div class="container">
+		<div class="zipInput col-xs-12" ng-show="noLocation == true" ng-hide="showMain">
+			<input ng-model="zipCode" type="text" /><br/>
+			<button ng-click="getCityByZip()">Submit</button><br/><br/>
+		</div>
+		<div class="currConditions" ng-show="showMain">
+			<div class="row location">
+				<h1>{{city}}, {{state}}</h1>
+				<span>{{currTime}}</span>
+				<span>{{weather.weather}}</span><br/>
+			</div>
+			<div class="row">
+				<div class="col-xs-6" class="currentIcon">
+					<img ng-src="img/{{currIcon}}.svg" alt="{{weather.weather}}" class="img-responsive"/>
+				</div>
+				<div class="col-xs-6 currentCond">
+					<h2>{{weather.temp_f}}&deg;F</h2>
+					<img src="img/temp.svg" alt="temp" class="defIcon" /> {{forecasts[0].high.fahrenheit}}&deg; / {{forecasts[0].low.fahrenheit}}&deg; <br/>
+					<img src="img/umbrella.svg" alt="chance rain" class="defIcon" /> {{forecasts[0].pop}}% <br/>
+					<img src="img/wind.svg" alt="wind" class="defIcon wind" />{{weather.wind_mph}} MPH <span ng-show="weather.wind_mph != 0">{{weather.wind_dir}}</span>
+				</div>
+			</div>
+		</div>
+		<div class="row forecastWrap" ng-show="forecasts.length">
+			<div class="col-xs-3 forecast" ng-repeat="forecast in forecasts">
+				<h3>{{forecast.date.weekday_short}}</h2>
+				<img ng-src="img/{{forecast.icon}}.svg" alt="{{forecast.conditions}}" class="img-responsive"/>
+				<span class="temp">{{forecast.high.fahrenheit}}&deg; / {{forecast.low.fahrenheit}}&deg;</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

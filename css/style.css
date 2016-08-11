@@ -1,0 +1,58 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  font-size: 16px;
+  padding-top: 20px;
+  color: #000;
+  background-color: powderblue; }
+
+.location {
+  text-align: center;
+  margin-bottom: 15px; }
+
+.forecast h3 {
+  text-transform: uppercase; }
+
+.zipInput {
+  text-align: center; }
+  .zipInput input {
+    margin-top: 20%; }
+  .zipInput button {
+    margin-top: 20px; }
+
+.currentCond h2 {
+  font-size: 3em; }
+
+.location > span,
+.currentCond {
+  font-size: 1.4em; }
+
+.time {
+  text-align: center;
+  font-size: 1.4em; }
+
+.col-xs-12 {
+  text-align: center; }
+
+.wIcon {
+  max-width: 150px; }
+
+.defIcon {
+  height: 37px;
+  margin-right: 5px; }
+
+.wind {
+  margin-right: 9px; }
+
+.forecastWrap {
+  margin-top: 20px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000; }
+
+.forecast:not(:last-child) {
+  border-right: 2px solid #000; }
+
+.temp {
+  float: right;
+  font-size: 1.3em; }
+
+/*# sourceMappingURL=style.css.map */
